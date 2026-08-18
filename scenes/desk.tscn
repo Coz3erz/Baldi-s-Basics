@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://4xvt033wi2fl"]
+
+[ext_resource type="Script" uid="uid://y6ekuxv1s2rq" path="res://scripts/other/class_desk.gd" id="1_em11a"]
+[ext_resource type="Texture2D" uid="uid://b4snh57pglfn0" path="res://sprites/classroom_props/desk_1.png" id="2_e7kfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em11a"]
+size = Vector2(46.2, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8atfi"]
+size = Vector2(55, 10)
+
+[node name="desk" type="StaticBody2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_em11a")
+
+[node name="desk" type="Sprite2D" parent="."]
+texture = ExtResource("2_e7kfv")
+
+[node name="sprite_2" type="CollisionShape2D" parent="."]
+position = Vector2(1.3, -2)
+shape = SubResource("RectangleShape2D_em11a")
+
+[node name="sprite_1" type="CollisionShape2D" parent="."]
+position = Vector2(-2.1, -5.6)
+shape = SubResource("RectangleShape2D_8atfi")

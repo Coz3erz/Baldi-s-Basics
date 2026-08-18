@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://peggescsr43f"]
+
+[ext_resource type="Texture2D" uid="uid://c14hk13p0sxxg" path="res://sprites/map/notebook.png" id="1_xkp3b"]
+[ext_resource type="Script" uid="uid://bngjbnindcrke" path="res://scripts/other/notebook.gd" id="2_ek6da"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkp3b"]
+size = Vector2(97, 126)
+
+[node name="notebook" type="Sprite2D"]
+texture = ExtResource("1_xkp3b")
+script = ExtResource("2_ek6da")
+
+[node name="notebook" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="notebook"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xkp3b")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1.5, 7.62939e-06)
+scale = Vector2(6.55, 8.6)
+
+[connection signal="area_entered" from="notebook" to="." method="_on_notebook_area_entered"]

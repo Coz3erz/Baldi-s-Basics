@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf6uikd8i4yh1"]
+
+[ext_resource type="Texture2D" uid="uid://dfy1aalasp24c" path="res://sprites/map/win_screen.webp" id="1_wao2c"]
+[ext_resource type="Script" uid="uid://wvca28od7rpl" path="res://scripts/other/win.gd" id="2_hgi8f"]
+[ext_resource type="AudioStream" uid="uid://kg1bf0eaievw" path="res://sounds/map/Wow, great job... Please try and do worse though I need t-... (Null Voice Lines).mp3" id="3_tmki8"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(1, 2)
+texture = ExtResource("1_wao2c")
+script = ExtResource("2_hgi8f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tmki8")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

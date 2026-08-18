@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3eqlkeuneas7"]
+
+[ext_resource type="Script" uid="uid://c5hnvt47ndlij" path="res://scripts/entities/principal.gd" id="1_3gb2m"]
+[ext_resource type="Texture2D" uid="uid://b0cwwx1rtvbwc" path="res://sprites/entities/principal.png" id="2_ujgyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6onq"]
+size = Vector2(18, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gb2m"]
+size = Vector2(132, 251)
+
+[node name="principal" type="CharacterBody2D"]
+script = ExtResource("1_3gb2m")
+
+[node name="principal" type="Sprite2D" parent="."]
+texture = ExtResource("2_ujgyp")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_b6onq")
+
+[node name="feetraycast" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(0, 124)
+
+[node name="headraycast" type="RayCast2D" parent="."]
+position = Vector2(0, -14)
+target_position = Vector2(2, -118)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+simplify_epsilon = 0.1
+avoidance_enabled = true
+radius = 50.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="pursuit" type="RayCast2D" parent="."]
+target_position = Vector2(-79, 23)
+
+[node name="entity" type="Area2D" parent="."]
+position = Vector2(2, -2)
+
+[node name="area" type="CollisionShape2D" parent="entity"]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_3gb2m")
+
+[node name="detention_timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="area_entered" from="entity" to="." method="_on_entity_area_entered"]
+[connection signal="area_exited" from="entity" to="." method="_on_entity_area_exited"]
+[connection signal="timeout" from="detention_timer" to="." method="_on_detention_timer_timeout"]

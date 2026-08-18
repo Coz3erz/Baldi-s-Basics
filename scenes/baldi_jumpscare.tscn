@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dar1av0ac3cv7"]
+
+[ext_resource type="Texture2D" uid="uid://d2px34i0lwo81" path="res://sprites/entities/baldi.png" id="1_07kj4"]
+
+[node name="baldi_jumpscare" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(770, 1236)
+scale = Vector2(10, 10)
+texture = ExtResource("1_07kj4")
+hframes = 5
+frame = 4

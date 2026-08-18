@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://blmogw85r6dmk"]
+
+[ext_resource type="Texture2D" uid="uid://dvvbacl7hewp" path="res://sprites/map/Plant.webp" id="1_ic2lr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubquu"]
+size = Vector2(32, 77)
+
+[node name="pot_plant" type="StaticBody2D"]
+scale = Vector2(2.7, 2.7)
+
+[node name="plant" type="Sprite2D" parent="."]
+texture = ExtResource("1_ic2lr")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 25.5)
+shape = SubResource("RectangleShape2D_ubquu")

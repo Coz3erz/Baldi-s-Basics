@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=3 uid="uid://jp7af4osk5h0"]
+
+[ext_resource type="Script" uid="uid://cqqt43vnf4afm" path="res://scripts/entities/baldi.gd" id="1_salaw"]
+[ext_resource type="Texture2D" uid="uid://d2px34i0lwo81" path="res://sprites/entities/baldi.png" id="2_owwru"]
+[ext_resource type="AudioStream" uid="uid://bovrcuceonxia" path="res://sounds/entities/baldi/ruler-slap.mp3" id="3_owwru"]
+[ext_resource type="AudioStream" uid="uid://dr8m2sfk2dqbq" path="res://sounds/entities/baldi/baldi_emit.wav" id="4_vrmq7"]
+
+[sub_resource type="Animation" id="Animation_d84bn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rwtar"]
+resource_name = "neutral"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vrmq7"]
+resource_name = "slap"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 2, 3, 4, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1akyy"]
+_data = {
+&"RESET": SubResource("Animation_d84bn"),
+&"neutral": SubResource("Animation_rwtar"),
+&"slap": SubResource("Animation_vrmq7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_salaw"]
+size = Vector2(38, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owwru"]
+size = Vector2(57, 190)
+
+[node name="Baldi" type="CharacterBody2D"]
+script = ExtResource("1_salaw")
+
+[node name="baldi_sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_owwru")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="baldi_sprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_1akyy")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+simplify_epsilon = 0.1
+radius = 50.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="feetraycast" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(-1, 86)
+
+[node name="headraycast" type="RayCast2D" parent="."]
+position = Vector2(0, -14)
+target_position = Vector2(0, -66)
+
+[node name="baldi_safety_collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_salaw")
+
+[node name="slap_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="slap_time" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="sound_timer" type="Timer" parent="."]
+wait_time = 0.29
+one_shot = true
+
+[node name="audio_stream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_owwru")
+volume_db = -3.62
+max_distance = 5435.0
+attenuation = 0.574349
+
+[node name="entity" type="Area2D" parent="."]
+
+[node name="entity" type="CollisionShape2D" parent="entity"]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_owwru")
+
+[node name="pursuit" type="RayCast2D" parent="."]
+target_position = Vector2(-79, 23)
+
+[node name="pursuit_buff" type="Timer" parent="."]
+one_shot = true
+
+[node name="screech" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vrmq7")
+
+[connection signal="timeout" from="slap_timer" to="." method="_on_slap_timer_timeout"]
+[connection signal="timeout" from="slap_time" to="." method="_on_slap_time_timeout"]
+[connection signal="timeout" from="sound_timer" to="." method="_on_sound_timer_timeout"]
+[connection signal="area_entered" from="entity" to="." method="_on_entity_area_entered"]
+[connection signal="timeout" from="pursuit_buff" to="." method="_on_pursuit_buff_timeout"]
+[connection signal="finished" from="screech" to="." method="_on_screech_finished"]

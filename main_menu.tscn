@@ -1,0 +1,222 @@
+[gd_scene load_steps=9 format=3 uid="uid://biumci3g60gu7"]
+
+[ext_resource type="Texture2D" uid="uid://dlmvprw1osmpa" path="res://sprites/menus/Title_final.webp" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://cdhjy8igbc2ju" path="res://scripts/other/main_menu.gd" id="2_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://cmkh3217bh8in" path="res://sounds/entities/baldi/welcome to Baldi  basics and education and learning that's me.mp3" id="3_fu7sn"]
+[ext_resource type="FontFile" uid="uid://b8187otktqlbj" path="res://fonts/COMIC.TTF" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dxsal6jd88kcv" path="res://sprites/menus/Story_Classic.webp" id="5_glbon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.609375, 0.609375, 0.609375, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color(0.554688, 0.554688, 0.554688, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color(0.554688, 0.554688, 0.554688, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(1, 1, 1, 0)
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D"]
+top_level = true
+z_index = 1
+texture_filter = 1
+position = Vector2(187, -20)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7vrkn")
+script = ExtResource("2_7vrkn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -4957.0
+offset_top = -1830.0
+offset_right = 6867.0
+offset_bottom = 1818.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fu7sn")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 227.0
+offset_top = -166.0
+offset_right = 291.0
+offset_bottom = -134.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 162.5
+offset_top = -70.0
+offset_right = 274.5
+offset_bottom = -38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 20
+text = "2D edition"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -317.5
+offset_top = 199.0
+offset_right = -253.5
+offset_bottom = 231.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 13
+text = "alpha 1"
+
+[node name="Node" type="Node2D" parent="."]
+position = Vector2(2242.5, -22)
+
+[node name="Label3" type="Label" parent="Node"]
+offset_left = -656.0
+offset_top = -416.0
+offset_right = 684.0
+offset_bottom = 421.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS :
+DISCLAIMER : this game is just a fan-game and in no way to insult
+or disrespect the creator of Baldi's basics. I made this for fun.
+
+Credits :
+original game : mystman12 
+2d version : Coz3erz 
+assets used : 
+mystman12's original Baldi's basics classic  and Baldi's basics plus's
+sprites and sounds
+					player sprite from mystic woods asset pack by game-endeavor on itch.io
+everything else is me :D
+Basically Games website : Basicallygames.com
+My website : sites.google.com/view/coz3erz
+mystic woods asset pack: game-endeavor.itch.io/mystic-woods"
+horizontal_alignment = 1
+
+[node name="Node2" type="Node2D" parent="."]
+position = Vector2(4578.5, -54)
+scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2"]
+position = Vector2(61.7145, -12.4286)
+scale = Vector2(2.05, 2)
+texture = ExtResource("5_glbon")
+
+[node name="Label3" type="Label" parent="Node2"]
+offset_left = -594.285
+offset_top = -571.429
+offset_right = 781.715
+offset_bottom = 736.571
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 47
+text = "how to play :
+
+
+
+
+
+
+
+
+
+
+
+
+controls:
+WASD or Arrow keys : movement
+left shift : sprint
+Q : look at Baldi's location (consumes stamina)
+E : Zoom out a little (consumes much less stamina)
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 338.5
+offset_top = -22.0
+offset_right = 357.5
+offset_bottom = 20.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+text = ">"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 1427.0
+offset_top = -22.0
+offset_right = 1459.0
+offset_bottom = 42.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+text = "<"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 3042.5
+offset_top = -22.0
+offset_right = 3074.5
+offset_bottom = 42.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+text = ">"
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 3810.5
+offset_top = -22.0
+offset_right = 3842.5
+offset_bottom = 42.0
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+text = "<"
+
+[node name="Button5" type="Button" parent="."]
+offset_left = -13.0
+offset_top = 186.0
+offset_right = 37.0
+offset_bottom = 227.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nlkkf")
+text = "play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kg1bf0eaievw"
+path="res://.godot/imported/Wow, great job... Please try and do worse though I need t-... (Null Voice Lines).mp3-b06738c921c6b1e0a88361e66fcc0c64.mp3str"
+
+[deps]
+
+source_file="res://sounds/map/Wow, great job... Please try and do worse though I need t-... (Null Voice Lines).mp3"
+dest_files=["res://.godot/imported/Wow, great job... Please try and do worse though I need t-... (Null Voice Lines).mp3-b06738c921c6b1e0a88361e66fcc0c64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

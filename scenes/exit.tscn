@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://borj7okedgskv"]
+
+[ext_resource type="Script" uid="uid://bxv33odkclaxl" path="res://scripts/other/exit.gd" id="1_l5n14"]
+[ext_resource type="Texture2D" uid="uid://ch5kngqm58wra" path="res://sprites/map/school_brick.png" id="2_c7mer"]
+[ext_resource type="Texture2D" uid="uid://nxhjuwi25a30" path="res://sprites/map/ExitSignSprite.webp" id="3_ka15t"]
+[ext_resource type="AudioStream" uid="uid://fobetme8bnmp" path="res://sounds/map/first_exit.wav" id="4_c7mer"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2427a"]
+size = Vector2(640, 1024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywa8d"]
+size = Vector2(864, 1024)
+
+[node name="exit" type="Node2D"]
+script = ExtResource("1_l5n14")
+metadata/rotation = 17
+
+[node name="wall" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_c7mer")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 1024)
+
+[node name="restriction" type="StaticBody2D" parent="wall"]
+
+[node name="restricted" type="CollisionShape2D" parent="wall/restriction"]
+shape = SubResource("RectangleShape2D_2427a")
+
+[node name="exit_sign" type="Sprite2D" parent="."]
+position = Vector2(-448, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ka15t")
+
+[node name="exit_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_area"]
+position = Vector2(-112, 0)
+shape = SubResource("RectangleShape2D_ywa8d")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c7mer")
+
+[connection signal="area_entered" from="exit_area" to="." method="_on_exit_area_area_entered"]

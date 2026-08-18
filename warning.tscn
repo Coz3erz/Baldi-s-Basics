@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://3q6qcjvvl2kf"]
+
+[ext_resource type="Texture2D" uid="uid://bkjryix71p3jg" path="res://sprites/menus/Screenshot 2025-05-21 224715.png" id="1_jupec"]
+[ext_resource type="Script" uid="uid://4vdb3ymtym56" path="res://scripts/other/warning.gd" id="2_8hufe"]
+
+[node name="Sprite2D" type="Sprite2D"]
+top_level = true
+z_index = 1
+texture_filter = 1
+position = Vector2(187, -20)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_jupec")
+script = ExtResource("2_8hufe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -4768.0
+offset_top = -1776.0
+offset_right = 5280.0
+offset_bottom = 1872.0
+color = Color(0, 0, 0, 1)
