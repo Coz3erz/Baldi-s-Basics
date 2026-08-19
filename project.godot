@@ -14,10 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="baldi fr"
+config/name="Baldi's Basics"
 run/main_scene="uid://3q6qcjvvl2kf"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://4fkd3syw0u0t"
 
 [editor_plugins]
 
